@@ -1,10 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export EDITOR:/usr/local/bin/nvim
-SETUVAR --export EDOTPR:/usr/local/bin/nvim
+SETUVAR --export EDITOR:/usr/bin/nvim
 SETUVAR --export HISTTIMEFORMAT:\x25Y\x2d\x25m\x2d\x25d\x20\x25T\x20
 SETUVAR --export MANPAGER:nvim\x20\x2bMan\x21
-SETUVAR --export SUDO_EDITOR:/usr/local/bin/nvim
+SETUVAR --export SUDO_EDITOR:/usr/bin/nvim
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_za:zoxide\x20add
 SETUVAR _fish_abbr_zq:zoxide\x20query
