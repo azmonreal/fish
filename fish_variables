@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export EDITOR:/usr/bin/nvim
+SETUVAR --export EDITOR:/usr/local/bin/nvim
+SETUVAR --export FZF_DEFAULT_COMMAND:fd
 SETUVAR --export HISTTIMEFORMAT:\x25Y\x2d\x25m\x2d\x25d\x20\x25T\x20
 SETUVAR --export MANPAGER:nvim\x20\x2bMan\x21
 SETUVAR --export SUDO_EDITOR:/usr/bin/nvim
@@ -9,8 +10,9 @@ SETUVAR _fish_abbr_za:zoxide\x20add
 SETUVAR _fish_abbr_zq:zoxide\x20query
 SETUVAR _fish_abbr_zqi:zoxide\x20query\x20\x2di
 SETUVAR _fish_abbr_zr:zoxide\x20remove
+SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ereitzig/sdkman\x2dfor\x2dfish\x40v1\x2e4\x2e0
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ereitzig/sdkman\x2dfor\x2dfish\x40v1\x2e4\x2e0\x1eedc/bass
 SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v1_2E_34_2E_30__files:\x7e/\x2econfig/fish/functions/sdk\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e\x7e/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
@@ -42,4 +44,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/azmon/\x2ecargo/bin
+SETUVAR fish_user_paths:/home/azmon/\x2elocal/bin\x1e/home/azmon/\x2ecargo/bin

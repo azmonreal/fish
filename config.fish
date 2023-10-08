@@ -2,9 +2,13 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set -Ux EDITOR "/usr/bin/nvim"
+set -Ux EDITOR "/usr/local/bin/nvim"
 set -Ux SUDO_EDITOR "/usr/bin/nvim"
-set -Ux MANPAGER "nvim +Man!"
+# set -Ux MANPAGER "nvim +Man!"
+
+set -Ux FZF_DEFAULT_COMMAND "fd"
+
+fish_add_path ~/.local/bin/
 
 alias clr="clear"
 alias ext="exit"
@@ -44,7 +48,7 @@ alias vlime="sbcl -load ~/.local/share/nvim/site/pack/packer/start/vlime/lisp/st
 alias ls="exa --group-directories-first --icons"
 alias la="exa -a --group-directories-first --icons"
 alias ll="exa -la --group-directories-first --icons"
-alias exatree="exa --tree --group-directories-first --icons"
+alias tree="exa --tree --group-directories-first --icons"
 
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -143,3 +147,9 @@ function cargonew
 end
 
 zoxide init fish | source
+
+
+if status is-interactive
+	# Commands to run in interactive sessions can go here
+nvm use
+end
