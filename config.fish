@@ -2,8 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set -Ux EDITOR "/usr/local/bin/nvim"
-set -Ux SUDO_EDITOR "/usr/bin/nvim"
+set -Ux EDITOR $(which nvim)
+set -Ux SUDO_EDITOR $(which nvim)
 # set -Ux MANPAGER "nvim +Man!"
 
 set -Ux FZF_DEFAULT_COMMAND "fd"
