@@ -2,11 +2,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set -Ux EDITOR $(which nvim)
-set -Ux SUDO_EDITOR $(which nvim)
+set -x EDITOR $(which nvim)
+set -x SUDO_EDITOR $(which nvim)
 # set -Ux MANPAGER "nvim +Man!"
 
-set -Ux FZF_DEFAULT_COMMAND "fd"
+set -x FZF_DEFAULT_COMMAND "fd"
 
 fish_add_path ~/.local/bin/
 
@@ -147,9 +147,3 @@ function cargonew
 end
 
 zoxide init fish | source
-
-
-if status is-interactive
-	# Commands to run in interactive sessions can go here
-nvm use
-end
