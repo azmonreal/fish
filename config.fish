@@ -2,6 +2,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+set -x XDG_DATA_HOME ~/.local/share
+set -x XDG_CONFIG_HOME ~/.config
+set -x XDG_STATE_HOME ~/.local/state
+set -x XDG_CACHE_HOME ~/.cache
+
 set -x EDITOR $(which nvim)
 set -x SUDO_EDITOR $(which nvim)
 # set -Ux MANPAGER "nvim +Man!"
