@@ -138,6 +138,10 @@ if status is-interactive
 		cd $argv
 	end
 
+	function echo_prompt --on-event fish_postexec
+		echo ""
+	end
 
 	zoxide init fish | source
+	starship init fish | source
 end
