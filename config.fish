@@ -10,6 +10,7 @@ set -x SUDO_EDITOR $(which nvim)
 set -x FZF_DEFAULT_COMMAND "fd"
 
 fish_add_path ~/.local/bin/
+fish_add_path ~/.local/scripts/
 
 if status is-interactive
 	alias rm="rm -i"
@@ -144,4 +145,6 @@ if status is-interactive
 
 	zoxide init fish | source
 	starship init fish | source
+
+	if test -z "$TMUX"; tmux new-session; end
 end
