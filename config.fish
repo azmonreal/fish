@@ -155,13 +155,13 @@ if status is-interactive
 
 	function vsource
 		if count $argv > /dev/null
-			if test -d ~/.venv/$argv
+			if test -d ~/venvs/$argv
 			else
 				echo "Virtualenv $argv does not exist"
 				return
 			end
 			echo "Sourcing virtualenv $argv"
-			source ~/.venv/$argv/bin/activate.fish
+			source ~/venvs/$argv/bin/activate.fish
 		else
 			if test -d .venv
 			else
