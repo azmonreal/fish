@@ -2,10 +2,14 @@ set -x XDG_DATA_HOME ~/.local/share
 set -x XDG_CONFIG_HOME ~/.config
 set -x XDG_STATE_HOME ~/.local/state
 set -x XDG_CACHE_HOME ~/.cache
+set -x XDG_PICTURES_DIR ~/Pictures
+set -x XDG_SCREENSHOTS_DIR $XDG_PICTURES_DIR/Screenshots
+
+set -x STARSHIP_CONFIG ~/.config/starship/starship.toml
 
 set -x EDITOR $(which nvim)
 set -x SUDO_EDITOR $(which nvim)
-# set -Ux MANPAGER "nvim +Man!"
+set -x MANPAGER "$(which nvim) +Man!"
 
 set -x FZF_DEFAULT_COMMAND "fd"
 
@@ -19,7 +23,7 @@ if status is-interactive
 
 	alias ls="exa --group-directories-first --icons"
 	alias la="exa -a --group-directories-first --icons"
-	alias ll="exa -la --group-directories-first --icons"
+	alias ll="exa -la --group-directories-first --icons --group --smart-group"
 	alias tree="exa --tree --group-directories-first --icons"
 
 	alias ...="cd ../.."
@@ -49,10 +53,13 @@ if status is-interactive
 	alias gita="git add"
 	alias gitc="git commit"
 	alias gitch="git checkout"
-	alias gitl="git log --graph"
+	alias gitl="git log --graph --oneline"
 	alias gits="git status"
 	alias gitpl="git pull"
-	alias pitps="git push"
+	alias gitps="git push"
+
+	alias odfzf="cd (fd -t d --search-path onedriver-uaslp/ | fzf --layout reverse --height 40% --border)"
+	alias cdfzf="cd (fd -t d | fzf --layout reverse --height 40% --border)"
 
 	# alias "history -t"="history --show-time=\"%Y-%m-%d %H:%M \""
 	function historya
@@ -124,10 +131,13 @@ if status is-interactive
 						return
 				end
 			end
-			$EDITOR ~/.config/$argv
+			cd ~/.config/$argv
+			$EDITOR .
 		else
+			cd ~/.config/
 			$EDITOR ~/.config
 		end
+		cd -
 		return 0
 	end
 
@@ -143,8 +153,38 @@ if status is-interactive
 		echo ""
 	end
 
-	zoxide init fish | source
-	starship init fish | source
+	function vsource
+		if count $argv > /dev/null
+			if test -d ~/.venv/$argv
+			else
+				echo "Virtualenv $argv does not exist"
+				return
+			end
+			echo "Sourcing virtualenv $argv"
+			source ~/.venv/$argv/bin/activate.fish
+		else
+			if test -d .venv
+			else
+				echo "No virtualenvs found"
+				return
+			end
+			echo "Sourcing virtualenv"
+			source .venv/bin/activate.fish
+		end
+	end
 
-	if test -z "$TMUX"; tmux new-session; end
+	if type -q zoxide
+		zoxide init fish | source
+	end
+	if type -q starship
+		starship init fish | source
+	end
+	if type -q pyenv
+		pyenv init - | source
+	end
+	if type -q fzf
+		fzf --fish | source
+	end
+end
+
 end
