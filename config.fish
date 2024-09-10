@@ -154,6 +154,10 @@ if status is-interactive
 	end
 
 	function vsource
+		if test -n "$VIRTUAL_ENV"
+			echo "Deactivating virtualenv"
+			deactivate
+		end
 		if count $argv > /dev/null
 			if test -d ~/venvs/$argv
 			else
