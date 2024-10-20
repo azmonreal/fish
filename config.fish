@@ -167,13 +167,23 @@ if status is-interactive
 			echo "Sourcing virtualenv $argv"
 			source ~/venvs/$argv/bin/activate.fish
 		else
-			if test -d .venv
+			# serach up the directory tree for a virtualenv
+			set -l dir $PWD
+
+			while test $dir != "/"; and test $dir != ""
+				if test -d $dir/.venv
+					break
+				end
+				set dir (dirname $dir)
+			end
+
+			if test -d $dir/.venv
+				echo "Sourcing virtualenv at $dir/.venv"
+				source $dir/.venv/bin/activate.fish
 			else
 				echo "No virtualenvs found"
 				return
 			end
-			echo "Sourcing virtualenv"
-			source .venv/bin/activate.fish
 		end
 	end
 
